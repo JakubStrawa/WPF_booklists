@@ -1,0 +1,19 @@
+﻿<Application x:Class="StudentsWpf.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:StudentsWpf"
+             xmlns:t="clr-namespace:StudentsWpf.ViewModels"
+             xmlns:k="clr-namespace:StudentsWpf.Views">
+    <Application.Resources>
+        <ResourceDictionary>
+            <DataTemplate DataType="{x:Type t:StudentsViewModel}">
+                <k:StudentsView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type t:StudentViewModel}">
+                <k:StudentView/>
+            </DataTemplate>
+            <!-- Dummy Style, anything you won't use goes -->
+            <Style TargetType="{x:Type Rectangle}" />
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
