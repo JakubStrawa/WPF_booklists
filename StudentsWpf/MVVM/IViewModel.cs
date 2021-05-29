@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudentsWpf.MVVM
+namespace BooksWPF.MVVM
 {
     public interface IViewModel
     {

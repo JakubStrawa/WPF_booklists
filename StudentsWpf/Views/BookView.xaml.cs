@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace StudentsWpf.Views
+namespace BooksWPF.Views
 {
     /// <summary>
-    /// Interaction logic for StudentsView.xaml
+    /// Interaction logic for BookView.xaml
     /// </summary>
-    public partial class StudentsView : UserControl
+    public partial class BookView : UserControl
     {
-        public StudentsView()
+        public BookView()
         {
             InitializeComponent();
         }

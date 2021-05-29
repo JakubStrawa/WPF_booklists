@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StudentsWpf.Properties
+namespace BooksWPF.Properties
 {
 
 

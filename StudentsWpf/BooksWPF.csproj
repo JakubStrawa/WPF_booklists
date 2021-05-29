@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{CE6EC989-7BC3-4BF9-ADCB-CAB046498CEA}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>StudentsWpf</RootNamespace>
     <AssemblyName>StudentsWpf</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -58,17 +61,17 @@
     <Compile Include="MVVM\IViewModel.cs" />
     <Compile Include="MVVM\IWindowService.cs" />
     <Compile Include="MVVM\RelayCommand.cs" />
-    <Compile Include="Models\Student.cs" />
-    <Compile Include="Models\StudentsModel.cs" />
+    <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\BooksModel.cs" />
     <Compile Include="MVVM\WindowService.cs" />
-    <Compile Include="ViewModels\StudentsViewModel.cs" />
-    <Compile Include="Views\StudentsView.xaml.cs">
-      <DependentUpon>StudentsView.xaml</DependentUpon>
+    <Compile Include="ViewModels\BooksViewModel.cs" />
+    <Compile Include="Views\BooksView.xaml.cs">
+      <DependentUpon>BooksView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\StudentView.xaml.cs">
-      <DependentUpon>StudentView.xaml</DependentUpon>
+    <Compile Include="Views\BookView.xaml.cs">
+      <DependentUpon>BookView.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\StudentsView.xaml">
+    <Page Include="Views\BooksView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -76,8 +79,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ViewModels\StudentViewModel.cs" />
-    <Page Include="Views\StudentView.xaml">
+    <Compile Include="ViewModels\BookViewModel.cs" />
+    <Page Include="Views\BookView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

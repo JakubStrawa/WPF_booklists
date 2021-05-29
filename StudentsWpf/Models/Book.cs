@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudentsWpf
+namespace BooksWPF
 {
-    public class Student : INotifyPropertyChanged
+    public class Book : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -39,7 +39,7 @@ namespace StudentsWpf
             set { group = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Group")); }
         }
 
-        public Student( string surname, string name, uint index, string group)
+        public Book( string surname, string name, uint index, string group)
         {
             Surname = surname;
             Name = name;

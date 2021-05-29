@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace StudentsWpf
+namespace BooksWPF
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -14,12 +14,12 @@ namespace StudentsWpf
     public partial class App : Application
     {
         public MVVM.IWindowService WindowService { get; } = new MVVM.WindowService();
-        private StudentsModel StudentsModel { get; } = new StudentsModel();
+        private BooksModel BooksModel { get; } = new BooksModel();
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            StudentsWpf.ViewModels.StudentsViewModel studentsViewModel = new StudentsWpf.ViewModels.StudentsViewModel(StudentsModel);
-            WindowService.Show(studentsViewModel);
+            BooksWPF.ViewModels.BooksViewModel booksViewModel = new BooksWPF.ViewModels.BooksViewModel(BooksModel);
+            WindowService.Show(booksViewModel);
         }
     }
 }
