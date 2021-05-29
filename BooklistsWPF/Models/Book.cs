@@ -43,12 +43,20 @@ namespace BooksWPF
             set { releaseDate = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ReleaseDate")); }
         }
 
-        public Book( string title, string author, Genres genre, DateTime releaseDate)
+        private UInt32 id;
+        public UInt32 ID
+        {
+            get { return id;  }
+            set { id = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ID")); }
+        }
+
+        public Book( string title, string author, Genres genre, DateTime releaseDate, UInt32 id)
         {
             Title = title;
             Author = author;
             Genre = genre;
             ReleaseDate = releaseDate;
+            ID = id;
         }
     }
 }

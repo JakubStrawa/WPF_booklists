@@ -23,6 +23,7 @@
                     <GridViewColumn Header="Author" DisplayMemberBinding="{Binding Author}"/>
                     <GridViewColumn Header="Genre" DisplayMemberBinding="{Binding Genre}"/>
                     <GridViewColumn Header="Release Date" DisplayMemberBinding="{Binding ReleaseDate, StringFormat=\{0:dd/MM/yyyy\}}"/>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}"/>
                 </GridView>
             </ListView.View>
         </ListView>

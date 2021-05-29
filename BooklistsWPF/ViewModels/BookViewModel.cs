@@ -17,6 +17,7 @@ namespace BooksWPF.ViewModels
         public string Author { get; set; }
         public Genres Genre { get; set; }
         public DateTime ReleaseDate { get; set; }
+        public UInt32 ID { get; set; }
 
         public RelayCommand<BookViewModel> OkCommand { get; } = new RelayCommand<BookViewModel>
             (
@@ -37,6 +38,7 @@ namespace BooksWPF.ViewModels
                 Author = Book.Title;
                 Genre = Book.Genre;
                 ReleaseDate = Book.ReleaseDate;
+                ID = Book.ID;
             }
         }
 
@@ -44,7 +46,7 @@ namespace BooksWPF.ViewModels
         {
             if (Book == null)
             {
-                Book book = new Book(Author, Title, Genre, ReleaseDate);
+                Book book = new Book(Author, Title, Genre, ReleaseDate, ID);
                 BooksModel.Books.Add(book);
             }
             else
@@ -53,6 +55,7 @@ namespace BooksWPF.ViewModels
                 Book.Title = Author;
                 Book.Genre = Genre;
                 Book.ReleaseDate = ReleaseDate;
+                Book.ID = ID;
             }
             Close?.Invoke();
         }
