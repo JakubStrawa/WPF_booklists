@@ -64,6 +64,8 @@
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\BooksModel.cs" />
     <Compile Include="MVVM\WindowService.cs" />
+    <Compile Include="Validators\AuthorNotValidRule.cs" />
+    <Compile Include="Validators\IDNotValidRule.cs" />
     <Compile Include="ViewModels\BooksViewModel.cs" />
     <Compile Include="Views\BooksView.xaml.cs">
       <DependentUpon>BooksView.xaml</DependentUpon>

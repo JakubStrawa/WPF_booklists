@@ -34,8 +34,8 @@ namespace BooksWPF.ViewModels
             Book = book;
             if (Book != null)
             {
-                Title = Book.Author;
-                Author = Book.Title;
+                Title = Book.Title;
+                Author = Book.Author;
                 Genre = Book.Genre;
                 ReleaseDate = Book.ReleaseDate;
                 ID = Book.ID;
@@ -46,13 +46,13 @@ namespace BooksWPF.ViewModels
         {
             if (Book == null)
             {
-                Book book = new Book(Author, Title, Genre, ReleaseDate, ID);
+                Book book = new Book(Title, Author, Genre, ReleaseDate, ID);
                 BooksModel.Books.Add(book);
             }
             else
             {
-                Book.Author = Title;
-                Book.Title = Author;
+                Book.Author = Author;
+                Book.Title = Title;
                 Book.Genre = Genre;
                 Book.ReleaseDate = ReleaseDate;
                 Book.ID = ID;
