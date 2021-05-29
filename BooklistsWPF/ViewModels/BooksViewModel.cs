@@ -65,10 +65,10 @@ namespace BooksWPF.ViewModels
         bool FilterBook(Book book)
         {
             if (yearFilter.Equals("No year filter"))
-                return book.Title.ToLower().Contains(FilterText.ToLower()) || book.Author.ToLower().Contains(FilterText.ToLower()) || book.ID.ToString().Contains(FilterText);
+                return book.Title.ToLower().Contains(FilterText.ToLower()) || book.Author.ToLower().Contains(FilterText.ToLower()) || book.ID.ToString().Contains(FilterText) || book.Genre.ToString().ToLower().Contains(FilterText.ToLower());
             else
             {
-                if (book.Title.ToLower().Contains(FilterText.ToLower()) || book.Author.ToLower().Contains(FilterText.ToLower()) || book.ID.ToString().Contains(FilterText))
+                if (book.Title.ToLower().Contains(FilterText.ToLower()) || book.Author.ToLower().Contains(FilterText.ToLower()) || book.ID.ToString().Contains(FilterText) || book.Genre.ToString().ToLower().Contains(FilterText.ToLower()))
                 {
                     if (yearFilter.Contains("Before 2000") && book.ReleaseDate.Year < 2000)
                     {
@@ -78,11 +78,9 @@ namespace BooksWPF.ViewModels
                     {
                         return true;
                     }
-                    else
-                        return false;
+                    else return false;
                 }
-                else
-                    return false;
+                else return false;
             }
         }
           
