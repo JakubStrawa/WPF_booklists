@@ -12,9 +12,9 @@ namespace BooksWPF
         public ObservableCollection<Book> Books { get; private set; } = new ObservableCollection<Book>();
         public BooksModel()
         {
-            Books.Add(new Book("Kowalski", "Henryk", 12, "1T1"));
-            Books.Add(new Book("Nowak", "Adam", 12, "2T3"));
-            Books.Add(new Book("Abacki", "Jan", 12, "2T2"));
+            Books.Add(new Book("Nowe Milenium", "Jan K. Nowak", Genres.DetectiveStory, new DateTime(2001,03,21)));
+            Books.Add(new Book("Star Wars", "George Lucas", Genres.Fantasy, new DateTime(1972, 05, 18)));
+            Books.Add(new Book("Zbiór poetycki", "Vincent van Gogh", Genres.Poetry, new DateTime(1889, 11, 22)));
         }
     }
 }

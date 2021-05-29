@@ -13,10 +13,10 @@ namespace BooksWPF.ViewModels
         private Book Book { get; }
         public Action Close { get; set; }
 
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public uint Index { get; set; }
-        public string Group { get; set; }
+        public string Title { get; set; }
+        public string Author { get; set; }
+        public Genres Genre { get; set; }
+        public DateTime ReleaseDate { get; set; }
 
         public RelayCommand<BookViewModel> OkCommand { get; } = new RelayCommand<BookViewModel>
             (
@@ -33,10 +33,10 @@ namespace BooksWPF.ViewModels
             Book = book;
             if (Book != null)
             {
-                Name = Book.Name;
-                Surname = Book.Surname;
-                Index = Book.Index;
-                Group = Book.Group;
+                Title = Book.Author;
+                Author = Book.Title;
+                Genre = Book.Genre;
+                ReleaseDate = Book.ReleaseDate;
             }
         }
 
@@ -44,15 +44,15 @@ namespace BooksWPF.ViewModels
         {
             if (Book == null)
             {
-                Book book = new Book(Surname, Name, Index, Group);
+                Book book = new Book(Author, Title, Genre, ReleaseDate);
                 BooksModel.Books.Add(book);
             }
             else
             {
-                Book.Name = Name;
-                Book.Surname = Surname;
-                Book.Index = Index;
-                Book.Group = Group;
+                Book.Author = Title;
+                Book.Title = Author;
+                Book.Genre = Genre;
+                Book.ReleaseDate = ReleaseDate;
             }
             Close?.Invoke();
         }

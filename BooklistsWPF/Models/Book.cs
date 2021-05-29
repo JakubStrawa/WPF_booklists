@@ -7,44 +7,48 @@ using System.Threading.Tasks;
 
 namespace BooksWPF
 {
+    public enum Genres
+    {
+        Poetry, Fantasy, DetectiveStory
+    }
     public class Book : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private string surname;
-        public string Surname
+        private string title;
+        public string Title
         {
-            get { return surname; }
-            set { surname = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Surname")); }
+            get { return title; }
+            set { title = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Title")); }
         }
 
-        private string name;
-        public string Name
+        private string author;
+        public string Author
         {
-            get { return name; }
-            set { name = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name")); }
+            get { return author; }
+            set { author = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Author")); }
         }
 
-        private uint index;
-        public uint Index
+        private Genres genre;
+        public Genres Genre
         {
-            get { return index; }
-            set { index = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Index")); }
+            get { return genre; }
+            set { genre = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Genre")); }
         }
 
-        private string group;
-        public string Group
+        private DateTime releaseDate;
+        public DateTime ReleaseDate
         {
-            get { return group; }
-            set { group = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Group")); }
+            get { return releaseDate; }
+            set { releaseDate = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ReleaseDate")); }
         }
 
-        public Book( string surname, string name, uint index, string group)
+        public Book( string title, string author, Genres genre, DateTime releaseDate)
         {
-            Surname = surname;
-            Name = name;
-            Index = index;
-            Group = group;
+            Title = title;
+            Author = author;
+            Genre = genre;
+            ReleaseDate = releaseDate;
         }
     }
 }

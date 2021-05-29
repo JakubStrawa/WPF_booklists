@@ -49,7 +49,7 @@ namespace BooksWPF.ViewModels
         }
         bool FilterBook(Book book)
         {
-            return book.Surname.Contains(FilterText) || book.Name.Contains(FilterText);
+            return book.Title.Contains(FilterText) || book.Author.Contains(FilterText);
         }
           
         public Action Close { get; set; }
