@@ -29,6 +29,21 @@ namespace BooksWPF.ViewModels
             }
         }
 
+        private string yearFilter = "No year filter";
+        public string YearFilter
+        {
+            get
+            {
+                return yearFilter;
+            }
+            set
+            {
+                yearFilter = value;
+                UpdateFilter();
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(YearFilter)));
+            }
+        }
+
         private string filterText = "";
         public string FilterText
         {
@@ -49,7 +64,26 @@ namespace BooksWPF.ViewModels
         }
         bool FilterBook(Book book)
         {
-            return book.Title.Contains(FilterText) || book.Author.Contains(FilterText) || book.ID.ToString().Contains(FilterText);
+            if (yearFilter.Equals("No year filter"))
+                return book.Title.ToLower().Contains(FilterText.ToLower()) || book.Author.ToLower().Contains(FilterText.ToLower()) || book.ID.ToString().Contains(FilterText);
+            else
+            {
+                if (book.Title.ToLower().Contains(FilterText.ToLower()) || book.Author.ToLower().Contains(FilterText.ToLower()) || book.ID.ToString().Contains(FilterText))
+                {
+                    if (yearFilter.Contains("Before 2000") && book.ReleaseDate.Year < 2000)
+                    {
+                        return true;
+                    }
+                    else if (yearFilter.Contains("After 2000") && book.ReleaseDate.Year >= 2000)
+                    {
+                        return true;
+                    }
+                    else
+                        return false;
+                }
+                else
+                    return false;
+            }
         }
           
         public Action Close { get; set; }

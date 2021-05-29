@@ -40,6 +40,12 @@ namespace BooksWPF.ViewModels
                 ReleaseDate = Book.ReleaseDate;
                 ID = Book.ID;
             }
+            else
+            {
+                ReleaseDate = DateTime.Now;
+                Title = "";
+                Author = "";
+            }
         }
 
         public void Ok()

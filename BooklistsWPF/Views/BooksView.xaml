@@ -14,6 +14,11 @@
                 <Button Content="Delete" Command="{Binding Path=DeleteCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
                 <Button Content="New window" Command="{Binding Path=NewWindowCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
                 <TextBox Height="22" Margin="0" TextWrapping="Wrap" Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+                <ComboBox Height="22" Margin="0" VerticalAlignment="Top" Width="120" Text="{Binding YearFilter, UpdateSourceTrigger= PropertyChanged}">
+                    <ComboBoxItem>No year filter</ComboBoxItem>
+                    <ComboBoxItem>Before 2000</ComboBoxItem>
+                    <ComboBoxItem>After 2000</ComboBoxItem>
+                </ComboBox>
             </ToolBar>
         </ToolBarTray>
         <ListView x:Name="BooksListView" ItemsSource="{Binding Books}" SelectedItem="{Binding SelectedBook, Mode=TwoWay}" Margin="0,0,0,0.4" Grid.Row="1" Grid.ColumnSpan="2">
