@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BooksWPF.MVVM;
+using System.ComponentModel;
 
 namespace BooksWPF.ViewModels
 {
-    public class BookViewModel : MVVM.IViewModel
+    public class BookViewModel : MVVM.IViewModel, INotifyPropertyChanged
     {
         private BooksModel BooksModel { get; }
         private Book Book { get; }
@@ -15,9 +16,39 @@ namespace BooksWPF.ViewModels
 
         public string Title { get; set; }
         public string Author { get; set; }
-        public Genres Genre { get; set; }
+        private Genres genre = Genres.Poetry;
+        public Genres Genre
+        {
+            get
+            {
+                return genre;
+            }
+            set
+            {
+                genre = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Genre)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PicturePath)));
+            }
+        }
         public DateTime ReleaseDate { get; set; }
         public UInt32 ID { get; set; }
+
+        private string picturePath = "Resources/poetry.png";
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public string PicturePath
+        {
+            get
+            {
+                picturePath = "Resources/" + Genre.ToString().ToLower() + ".png";
+                return picturePath;
+            }
+            set
+            {
+                picturePath = value;
+            }
+        }
 
         public RelayCommand<BookViewModel> OkCommand { get; } = new RelayCommand<BookViewModel>
             (
@@ -26,6 +57,11 @@ namespace BooksWPF.ViewModels
         public RelayCommand<BookViewModel> CancelCommand { get; } = new RelayCommand<BookViewModel>
             (
                 (bookViewModel) => { bookViewModel.Cancel(); }
+            );
+
+        public RelayCommand<BookViewModel> ChangePhotoCommand { get; } = new RelayCommand<BookViewModel>
+            (
+                (bookViewModel) => { bookViewModel.ChangeImage(); }
             );
 
         public BookViewModel(BooksModel booksModel, Book book)
@@ -66,5 +102,14 @@ namespace BooksWPF.ViewModels
             Close?.Invoke();
         }
         public void Cancel() => Close?.Invoke();
+
+        public void ChangeImage()
+        {
+            Genre++;
+            if ((int) Genre == 3)
+                Genre = 0;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Genre)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PicturePath)));
+        }
     }
 }

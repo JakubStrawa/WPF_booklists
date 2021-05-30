@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:BooksWPF"
              xmlns:System="clr-namespace:System;assembly=mscorlib"
-             mc:Ignorable="d"  Height="215" Width="260">
+             mc:Ignorable="d"  Height="215" Width="462.4">
     <UserControl.Resources>
         <ObjectDataProvider x:Key="dataFromEnum" MethodName="GetValues"
                             ObjectType="{x:Type System:Enum}">
@@ -27,7 +27,7 @@
             </DockPanel>
         </ControlTemplate>
     </UserControl.Resources>
-    <Grid>
+    <Grid Margin="0,0,0.4,0.2">
         <Label Content="Title" Margin="10,10,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <Label Content="Author" Margin="10,41,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <Label Content="Genre" Margin="10,72,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left"/>
@@ -64,7 +64,10 @@
                 </Binding>
             </TextBox.Text>
         </TextBox>
-                <Button Content="Ok" Command="{Binding Path=OkCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}" HorizontalAlignment="Left" Margin="47,180,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Ok" Command="{Binding Path=OkCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}" HorizontalAlignment="Left" Margin="47,180,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Content="Cancel" Command="{Binding Path=CancelCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}" HorizontalAlignment="Left" Margin="145,180,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Command="{Binding Path=ChangePhotoCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}" HorizontalAlignment="Left" Height="186" Margin="240,13,0,0" VerticalAlignment="Top" Width="186">
+            <Image Source="{Binding PicturePath}" Width="186" Height="186"/>
+        </Button>
     </Grid>
 </UserControl>
