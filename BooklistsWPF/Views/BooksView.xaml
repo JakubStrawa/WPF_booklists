@@ -24,11 +24,11 @@
         <ListView x:Name="BooksListView" ItemsSource="{Binding Books}" SelectedItem="{Binding SelectedBook, Mode=TwoWay}" Margin="0,0,0,0.4" Grid.Row="1" Grid.ColumnSpan="2">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}"/>
-                    <GridViewColumn Header="Author" DisplayMemberBinding="{Binding Author}"/>
-                    <GridViewColumn Header="Genre" DisplayMemberBinding="{Binding Genre}"/>
-                    <GridViewColumn Header="Release Date" DisplayMemberBinding="{Binding ReleaseDate, StringFormat=\{0:dd/MM/yyyy\}}"/>
-                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}"/>
+                    <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="120"/>
+                    <GridViewColumn Header="Author" DisplayMemberBinding="{Binding Author}" Width="120"/>
+                    <GridViewColumn Header="Genre" DisplayMemberBinding="{Binding Genre}" Width="100"/>
+                    <GridViewColumn Header="Release Date" DisplayMemberBinding="{Binding ReleaseDate, StringFormat=\{0:dd/MM/yyyy\}}" Width="80"/>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}" Width="60"/>
                 </GridView>
             </ListView.View>
         </ListView>

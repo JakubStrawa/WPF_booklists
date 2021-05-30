@@ -21,6 +21,10 @@ namespace BooksWPF
             {
                 return new ValidationResult(false, "Book title not valid");
             }
+            catch (ArgumentOutOfRangeException)
+            {
+                return new ValidationResult(false, "Book title not valid");
+            }
             if (String.IsNullOrEmpty(title))
                 return new ValidationResult(false, "Book title cannot be empty");
 

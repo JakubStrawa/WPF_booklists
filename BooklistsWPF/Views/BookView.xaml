@@ -16,7 +16,7 @@
         <Style TargetType="TextBox">
             <Style.Triggers>
                 <Trigger Property="Validation.HasError" Value="true">
-                    <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)[0].ErrorContent}"/>
+                    <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors)/ErrorContent}"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -33,7 +33,7 @@
         <Label Content="Genre" Margin="10,72,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <Label Content="Release Date" Margin="10,103,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <Label Content="ID" Margin="10,134,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="100,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
+        <TextBox x:Name="TitleTextBox" HorizontalAlignment="Left" Height="23" Margin="100,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
             <TextBox.Text>
                 <Binding Path="Title" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
@@ -42,7 +42,7 @@
                 </Binding>
             </TextBox.Text>
         </TextBox>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="100,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
+        <TextBox x:Name="AuthorTextBox" HorizontalAlignment="Left" Height="23" Margin="100,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
             <TextBox.Text>
                 <Binding Path="Author" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
@@ -55,7 +55,7 @@
                   SelectedItem="{Binding Genre}" VerticalAlignment="Top" Width="120"/>
         <DatePicker HorizontalAlignment="Left" Height="26" Margin="100,104,0,0" SelectedDate="{Binding ReleaseDate}" DisplayDateEnd="{Binding Mode=OneWay, Source={x:Static
             System:DateTime.Today}}" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="100,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
+        <TextBox x:Name="IDTextBox" HorizontalAlignment="Left" Height="23" Margin="100,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120">
             <TextBox.Text>
                 <Binding Path="ID" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>

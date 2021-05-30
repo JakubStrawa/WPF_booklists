@@ -105,9 +105,10 @@ namespace BooksWPF.ViewModels
 
         public void ChangeImage()
         {
-            Genre++;
-            if ((int) Genre == 3)
-                Genre = 0;
+            if ((int)Genre == 2)
+                Genre = Genres.Poetry;
+            else
+                Genre++;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Genre)));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(PicturePath)));
         }
