@@ -6,9 +6,9 @@
              xmlns:local="clr-namespace:BooksWPF.Views"
              mc:Ignorable="d" 
              Height="351" Width="692">
-    <DockPanel>
-        <ToolBarTray DockPanel.Dock="Top">
-            <ToolBar>
+    <DockPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+        <ToolBarTray DockPanel.Dock="Top" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+            <ToolBar VerticalAlignment="Top" HorizontalAlignment="Stretch">
                 <Button Content="Add" Command="{Binding Path=AddCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
                 <Button Content="Edit" Command="{Binding Path=EditCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
                 <Button Content="Delete" Command="{Binding Path=DeleteCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}"/>
@@ -21,7 +21,7 @@
                 </ComboBox>
             </ToolBar>
         </ToolBarTray>
-        <ListView x:Name="BooksListView" ItemsSource="{Binding Books}" SelectedItem="{Binding SelectedBook, Mode=TwoWay}" Margin="0,0,0,0.4" Grid.Row="1" Grid.ColumnSpan="2">
+        <ListView x:Name="BooksListView" ItemsSource="{Binding Books}" SelectedItem="{Binding SelectedBook, Mode=TwoWay}" Margin="0,0,0,0" Grid.Row="1" Grid.ColumnSpan="2" Height="324" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="120"/>
